@@ -1,0 +1,112 @@
+﻿@model IEnumerable<HW04BookStore.Models.Books>
+
+
+
+
+<h1>Business Books</h1>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model.Where(x => x._Genre == "business"))
+        {
+            <div class="col-lg-3">
+                <div class="card" style="width: 18rem; background-color: #F0F0F0 !important;padding:10px;border-radius:20px">
+
+                    <img class="card-img-top" src="@Url.Content(item.Image)" height="150" width="150">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">@item.Name</h5>
+
+                        <p class="card-text">@item.Description</p>
+
+                        <button class="btn btn-success" style="border-radius: 20px !important" data-toggle="modal" data-target="#exampleModal-@item.ID"> View </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<h1>Romance Books</h1>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model.Where(x => x._Genre == "romance"))
+        {
+            <div class="col-lg-3">
+                <div class="card" style="width: 18rem; background-color: #F0F0F0 !important;padding:10px;border-radius:20px">
+
+                    <img class="card-img-top" src="@Url.Content(item.Image)" height="150" width="150">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">@item.Name</h5>
+
+                        <p class="card-text">@item.Description</p>
+
+                        <button class="btn btn-success" style="border-radius: 20px !important" data-toggle="modal" data-target="#exampleModal-@item.ID"> View </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<h1>Education Books</h1>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model.Where(x => x._Genre == "education"))
+        {
+            <div class="col-lg-3">
+                <div class="card" style="width: 18rem; background-color: #F0F0F0 !important;padding:10px;border-radius:20px">
+
+                    <img class="card-img-top" src="@Url.Content(item.Image)" height="150" width="150">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">@item.Name</h5>
+
+                        <p class="card-text">@item.Description</p>
+
+                        <button class="btn btn-success" style="border-radius: 20px !important" data-toggle="modal" data-target="#exampleModal-@item.ID"> View </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="modal fade" id="exampleModal-@item.ID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">@item.Name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>Price:</h3><span> R  @item.PriceIncVat() Incl Vat </span><br />
+                    <hr />
+                    <p>@item.BookInfo()</p>
+                    <br />
+                    <p>@item.BookQuote()</p>
+                    <br />
+                    <p> @item.BookAuthor()</p>
+                    <br />
+                    <p> @item.BookPages()</p>
+                    <br />
+                    <h6>@item.BookReviews()</h6>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HW04BookStore.Models.Education>
+
+@{
+    ViewBag.Title = "EduIndex";
+}
+
+<h2>EduIndex</h2>
+
+
+<button class="btn btn-primary" onclick="window.location.href = '@Url.Action("AddEduToStore", "Store")'"> Add a book</button>
+
+
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+   
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookFormat)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookFormat)
+            </td>
+            <td>
+                <button class="btn btn-info" onclick="window.location.href = '@Url.Action("EditEdu","Store", new { Id = item.ID })'">Edit</button>
+                <button class="btn btn-danger" onclick="window.location.href = '@Url.Action("DeleteEdu","Store", new { Id = item.ID  })'"> Delete</button>
+            </td>
+        </tr>
+    }
+
+</table>

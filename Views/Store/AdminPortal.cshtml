@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Admin Portal";
+}
+
+<h2>AdminPortal</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="~/Content/Images/Admin portal/bicon.png" height="100" width="100" />
+            <button class="btn btn-primary" onclick="window.location.href = '@Url.Action("BusIndex","Store")'">Business Books Database</button>
+        </div>
+        <div class="col-lg-4">
+            <img src="~/Content/Images/Admin portal/loveicon.png" height="100" width="100" />
+            <button class="btn btn-success" onclick="window.location.href = '@Url.Action("RomIndex","Store")'">Romance Books Database</button>
+        </div>
+        <div class="col-lg-4">
+            <img src="~/Content/Images/Admin portal/eduicon.png" height="100" width="100" />
+            <button class="btn btn-info" onclick="window.location.href = '@Url.Action("EduIndex","Store")'">Education Books Database</button>
+        </div>
+    </div>
+</div>
+
